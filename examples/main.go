@@ -5,24 +5,22 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/modugo/fiberauth"
 	"log"
-	"time"
 )
 
 func main() {
 	app := fiber.New()
 
-	fiberauth.Init(app, fiberauth.Config{
-		WithSignIn:           true,
-		WithSignUp:           true,
-		WithRefresh:          true,
-		WithLogout:           true,
-		Entity:               Auth{},
-		JWTSecret:            []byte("1234"),
-		AccessTokenDuration:  1 * time.Hour,
-		RefreshTokenDuration: 24 * time.Hour,
-		WithRefreshToken:     true,
-		WithCookie:           true,
-	})
+	//fiberauth.Init(app, fiberauth.Config{
+	//	WithSignIn:           true,
+	//	WithSignUp:           true,
+	//	WithLogout:           true,
+	//	Entity:               Auth{},
+	//	JWTSecret:            []byte("1234"),
+	//	AccessTokenDuration:  1 * time.Hour,
+	//	RefreshTokenDuration: 24 * time.Hour,
+	//	WithRefreshToken:     true,
+	//	WithCookie:           true,
+	//})
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString(fmt.Sprintf(
